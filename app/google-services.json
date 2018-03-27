@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "843037810288",
+    "firebase_url": "https://loginsample-391a7.firebaseio.com",
+    "project_id": "loginsample-391a7",
+    "storage_bucket": "loginsample-391a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843037810288:android:2bddc6acc5845bcd",
+        "android_client_info": {
+          "package_name": "karrel.com.googleloginsample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "843037810288-dvfmgtuid8v8tkad2233mdbmgab34ni1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "karrel.com.googleloginsample",
+            "certificate_hash": "b13010813336f6839d49b234f2a4bcbab09018f8"
+          }
+        },
+        {
+          "client_id": "843037810288-hfshpdslko9vi1tojcjf25n2segjgud4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAikS10QGdIi5wy1KCTVJdvRHLq-hI7ajg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "843037810288-hfshpdslko9vi1tojcjf25n2segjgud4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
