@@ -13,7 +13,9 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseUser
 
-
+// TODO
+// - 로그인에 성공하면 로그인에 성공한 데이터들에 대해 표기
+// - 페이스북과 트위터의 로그인에 대한 테스트 및 적용 진행
 class MainActivity : AppCompatActivity() {
     private val RC_SIGN_IN = 123
 
