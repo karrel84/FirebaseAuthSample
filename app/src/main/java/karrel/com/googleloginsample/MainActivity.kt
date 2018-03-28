@@ -15,7 +15,7 @@ import org.jetbrains.anko.toast
 import java.util.*
 
 // TODO LIST
-// - 로그인에 성공하면 로그인에 성공한 데이터들에 대해 표기
+
 // - 페이스북과 트위터의 로그인에 대한 테스트 및 적용 진행
 // - 계정삭제 추가
 class MainActivity : AppCompatActivity() {
