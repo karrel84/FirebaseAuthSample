@@ -12,6 +12,7 @@ import java.util.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseUser
+import org.jetbrains.anko.toast
 
 // TODO LIST
 // - 로그인에 성공하면 로그인에 성공한 데이터들에 대해 표기
@@ -103,6 +104,7 @@ class MainActivity : AppCompatActivity() {
                     .addOnCompleteListener(object : OnCompleteListener<Void> {
                         override fun onComplete(task: Task<Void>) {
                             Log.e("HELLO", "logout onComplete")
+                            toast("logout onComplete")
                         }
                     })
 

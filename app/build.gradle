@@ -45,5 +45,9 @@ dependencies {
     // Required only if Twitter login support is required
     compile("com.twitter.sdk.android:twitter-core:3.0.0@aar") { transitive = true }
 
+    // Anko Commons 라이브러리
+    implementation 'org.jetbrains.anko:anko-commons:0.10.2'
+
+
 }
 apply plugin: 'com.google.gms.google-services'
