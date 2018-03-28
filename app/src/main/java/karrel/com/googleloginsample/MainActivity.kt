@@ -5,18 +5,18 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
-import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
+import java.util.*
 
 // TODO LIST
 // - 로그인에 성공하면 로그인에 성공한 데이터들에 대해 표기
 // - 페이스북과 트위터의 로그인에 대한 테스트 및 적용 진행
+// - 계정삭제 추가
 class MainActivity : AppCompatActivity() {
     private val RC_SIGN_IN = 123
 
@@ -60,27 +60,21 @@ class MainActivity : AppCompatActivity() {
 
     // 로그인정보를 출력
     private fun printLoginInfo(user: FirebaseUser) {
-// Name, email address, and profile photo Url
-        val name = user.displayName;
-        val email = user.email
+        name.text = "name : ${user.displayName}"
+        email.text = "email : ${user.email}"
+        emailVerified.text = "emailVerifed : ${user.isEmailVerified}"
+        uid.text = "uid : ${user.uid}"
+
         val photoUrl = user.photoUrl
+    }
 
-        // Check if user's email is verified
-        val emailVerified = user.isEmailVerified
+    private fun clearLoginInfo() {
+        name.text = ""
+        email.text = ""
+        emailVerified.text = ""
+        uid.text = ""
 
-        // The user's ID, unique to the Firebase project. Do NOT use this value to
-        // authenticate with your backend server, if you have one. Use
-        // FirebaseUser.getToken() instead.
-        val uid = user.uid
-
-        Log.e("HELLO",
-                "name : $name\n" +
-                        "email : $email\n" +
-                        "photoUrl : $photoUrl\n" +
-                        "emailVerified : $emailVerified\n" +
-                        "uid : $uid\n"
-        )
-
+        profileImage.setImageResource(R.drawable.ic_launcher_foreground)
     }
 
     // 버튼 이벤트
@@ -92,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
                             .setAvailableProviders(providers)
-                            .setLogo(R.drawable.rellbot)
+                            .setLogo(R.drawable.img_login)
                             .build(),
                     RC_SIGN_IN)
         }
@@ -105,6 +99,9 @@ class MainActivity : AppCompatActivity() {
                         override fun onComplete(task: Task<Void>) {
                             Log.e("HELLO", "logout onComplete")
                             toast("logout onComplete")
+
+                            // 로그인 정보 제거
+                            clearLoginInfo()
                         }
                     })
 
@@ -116,17 +113,13 @@ class MainActivity : AppCompatActivity() {
 
 
         if (requestCode === RC_SIGN_IN) {
-            val response = IdpResponse.fromResultIntent(data)
-
             if (resultCode === RESULT_OK) {
                 // Successfully signed in
                 val user = FirebaseAuth.getInstance().currentUser
-                // ...
                 printLoginInfo(user!!)
 
             } else {
-                // Sign in failed, check response for error code
-                // ...
+                toast("Sign in failed")
             }
         }
     }
