@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.bumptech.glide.Glide
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
@@ -65,7 +66,8 @@ class MainActivity : AppCompatActivity() {
         emailVerified.text = "emailVerifed : ${user.isEmailVerified}"
         uid.text = "uid : ${user.uid}"
 
-        val photoUrl = user.photoUrl
+        Glide.with(this).load(user.photoUrl).into(profileImage)
+
     }
 
     private fun clearLoginInfo() {
